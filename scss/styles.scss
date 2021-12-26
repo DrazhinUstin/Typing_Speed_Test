@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import 'config';
+@import 'typing-text';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    @extend %grid-center;
+    background: linear-gradient($primary-clr 0%, $primary-clr-2 100%);
+    color: $black;
+    line-height: 1;
+}
+
+p {
+    line-height: 1.5;
+}
+
+li {
+    list-style-type: none;
+}
+
+button {
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem;
+    border: none;
+    border-radius: $radius;
+    background: linear-gradient($orange 0%, $red 100%);
+    color: $white;
+    text-transform: capitalize;
+    letter-spacing: $space;
+}
+
+.test-wrapper {
+    max-width: 600px;
+    width: 90vw;
+    padding: 1rem;
+    border-radius: $radius-2;
+    background-color: $white;
+    header {
+        margin-bottom: 1rem;
+        text-align: center;
+        font-style: italic;
+        text-transform: capitalize;
+        letter-spacing: $space;
+    }
+    footer {
+        text-align: center;
+    }
+}
+
+.controller {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 1rem 0;
+    padding: 0.25rem 0;
+    border-radius: $radius;
+    background: linear-gradient($primary-clr 0%, $primary-clr-2 100%);
+    color: $white;
+    li {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        column-gap: 0.5rem;
+        padding: 0.5rem;
+        border-right: 1px solid $white;
+        text-transform: capitalize;
+        &:last-child {
+            border-right: none;
+        }
+    }
+}
+
+#test-input-field {
+    position: absolute;
+    top: 10rem;
+    left: 25rem;
+    width: 30rem;
+    font-size: 1.2rem;
+}

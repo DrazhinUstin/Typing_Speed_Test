@@ -1,0 +1,17 @@
+$primary-clr: #2980b9;
+$primary-clr-2: #2c3e50;
+$orange: #ef473a;
+$red: #cb2d3e;
+$black: #1c1c1c;
+$white: #ffffff;
+$grey: #cbcbcb;
+$gold: #fbb910;
+$green: #008000;
+$radius: 0.25rem;
+$radius-2: 0.5rem;
+$space: 0.1rem;
+
+%grid-center {
+    display: grid;
+    place-items: center;
+}
