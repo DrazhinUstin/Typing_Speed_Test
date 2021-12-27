@@ -39,6 +39,11 @@ button {
     color: $white;
     text-transform: capitalize;
     letter-spacing: $space;
+    transition: $ease-trans;
+    &.disabled {
+        opacity: 0.6;
+        pointer-events: none;
+    }
 }
 
 .test-wrapper {
@@ -82,8 +87,6 @@ button {
 
 #test-input-field {
     position: absolute;
-    top: 10rem;
-    left: 25rem;
-    width: 30rem;
-    font-size: 1.2rem;
+    opacity: 0;
+    z-index: -999;
 }
