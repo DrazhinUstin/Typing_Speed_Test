@@ -21,13 +21,13 @@
             }
         }
         &.correct {
-            color: $green;
+            color: $green-2;
         }
         &.incorrect {
             outline: 1px solid $white;
             border-radius: $radius;
             background-color: #ef463a41;
-            color: $orange;
+            color: $red;
         }
     }
 }

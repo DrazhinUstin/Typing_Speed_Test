@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import 'config';
+@import 'preloader';
 @import 'typing-text';
 
 * {
@@ -31,19 +32,24 @@ button {
 }
 
 .btn {
+    width: 8rem;
     display: inline-block;
-    padding: 0.5rem;
+    padding: 0.5rem 0;
     border: none;
     border-radius: $radius;
-    background: linear-gradient($orange 0%, $red 100%);
+    background: linear-gradient($red 0%, $red-2 100%);
     color: $white;
     text-transform: capitalize;
     letter-spacing: $space;
     transition: $ease-trans;
-    &.disabled {
-        opacity: 0.6;
-        pointer-events: none;
+    &:active {
+        transform: scale(0.95);
     }
+}
+
+.disabled {
+    opacity: 0.7;
+    pointer-events: none;
 }
 
 .test-wrapper {
@@ -60,7 +66,10 @@ button {
         letter-spacing: $space;
     }
     footer {
-        text-align: center;
+        @extend %flex-between;
+        .btn:first-child {
+            background: linear-gradient($green 0%, $green-2 100%);
+        }
     }
 }
 
