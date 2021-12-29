@@ -1,0 +1,69 @@
+.modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    @extend %grid-center;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: $ease-trans;
+    z-index: 999;
+    &.show {
+        visibility: visible;
+        opacity: 1;
+        section {
+            transform: scale(1);
+        }
+    }
+    section {
+        max-width: 600px;
+        width: 90vw;
+        border-radius: $radius-2;
+        background: $white;
+        transform: scale(0);
+        transition: $ease-trans;
+        main {
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            grid-gap: 1rem;
+            padding: 1rem;
+        }
+        img {
+            width: 14rem;
+            height: auto;
+            display: block;
+        }
+        article {
+            h3 {
+                margin-bottom: 1rem;
+                text-align: center;
+                font-size: 1.4rem;
+                line-height: 1.2;
+            }
+            p {
+                font-size: 1.2rem;
+                span:not(.wpm-result) {
+                    padding: 0 0.1rem;
+                    border-radius: $radius;
+                    font-weight: bold;
+                }
+                .cpm-result {
+                    background-color: $gold;
+                }
+                .errors-result {
+                    background-color: lighten($red, 5%);
+                }
+                .accuracy-result {
+                    background-color: $green;
+                }
+            }
+        }
+        footer {
+            padding: 1rem;
+            border-top: 1px solid $grey;
+            text-align: center;
+        }
+    }
+}

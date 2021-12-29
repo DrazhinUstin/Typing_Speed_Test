@@ -1,4 +1,5 @@
 import paragraphs from "./paragraphs.js";
+import showTestResult from "./showTestResult.js";
 
 const setupTest = () => {
     const startTestBtn = document.getElementById('start-test-btn');
@@ -9,12 +10,13 @@ const setupTest = () => {
     const errorsDOM = document.querySelector('.errors');
     const cpmDOM = document.querySelector('.cpm');
     const wpmDOM = document.querySelector('.wpm');
-    const audio = new Audio('../audio/error_sound.mp3');
+    const audio = new Audio('../src/error_sound.mp3');
     let totalTime = 60;
     let timeLeft;
     let timerID;
     let errors = 0;
     let cpm = 0;
+    let wpm = 0;
     let currentString = '';
     let activeError = false;
     let step = 0;
@@ -41,7 +43,7 @@ const setupTest = () => {
     };
 
     const resetController = () => {
-        errors = cpm = step = 0;
+        errors = cpm = wpm = step = 0;
         activeError = false;
         testInput.value = currentString = '';
         timerDOM.textContent = `${totalTime}s`;
@@ -96,7 +98,6 @@ const setupTest = () => {
     };
 
     const defineWPM = () => {
-        let wpm;
         const words = currentString.split(' ');
         const lastWordIndex = words.length - 1;
         const lastWord = words[lastWordIndex];
@@ -114,6 +115,7 @@ const setupTest = () => {
         testInput.removeEventListener('input', initTyping);
         startTestBtn.textContent = 'restart';
         startTestBtn.parentElement.classList.remove('disabled');
+        showTestResult(cpm, wpm, errors);
     };
 
     startTestBtn.addEventListener('click', startTest);
