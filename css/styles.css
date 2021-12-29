@@ -5,7 +5,7 @@
   place-items: center;
 }
 
-.test-wrapper footer {
+.test-wrapper header, .test-wrapper footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -276,10 +276,25 @@ button {
 
 .test-wrapper header {
   margin-bottom: 1rem;
-  text-align: center;
   font-style: italic;
   text-transform: capitalize;
   letter-spacing: 0.1rem;
+}
+
+.test-wrapper header select {
+  padding: 0.1rem;
+  border: 1px solid #cbcbcb;
+  border-radius: 0.25rem;
+  background-color: #ffffff;
+  color: #1c1c1c;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.test-wrapper header select:focus {
+  outline: none;
+  padding: calc(0.1rem - 1px);
+  border: 2px solid #2980b9;
 }
 
 .test-wrapper footer .btn:first-child {

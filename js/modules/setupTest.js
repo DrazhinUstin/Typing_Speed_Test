@@ -1,4 +1,4 @@
-import paragraphs from "./paragraphs.js";
+import getRandomText from "./getRandomText.js";
 import showTestResult from "./showTestResult.js";
 
 const setupTest = () => {
@@ -20,11 +20,6 @@ const setupTest = () => {
     let currentString = '';
     let activeError = false;
     let step = 0;
-
-    const getRandomText = () => {
-        const index = Math.floor(Math.random() * paragraphs.length);
-        typingTextDOM.textContent = paragraphs[index];
-    };
 
     const splitText = () => {
         const chars = typingTextDOM.innerText.split('');
@@ -120,13 +115,22 @@ const setupTest = () => {
 
     startTestBtn.addEventListener('click', startTest);
 
-    changeTestBtn.addEventListener('click', () => {
-        getRandomText();
-        resetController();
-        startTestBtn.textContent = 'start test';
+    changeTestBtn.addEventListener('click', async () => {
+        changeTestBtn.parentElement.classList.add('disabled');
+        changeTestBtn.textContent = 'loading...';
+        const text = await getRandomText();
+        if (text) {
+            typingTextDOM.textContent = text;
+            resetController();
+            startTestBtn.textContent = 'start test';
+        } else {
+            alert('Sorry, something went wrong...');
+        }
+        changeTestBtn.textContent = 'change test';
+        changeTestBtn.parentElement.classList.remove('disabled');
     });
 
-    getRandomText();
+   changeTestBtn.click();
 };
 
 export default setupTest;
