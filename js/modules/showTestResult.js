@@ -23,7 +23,7 @@ const resultData = [
 
 const showTestResult = (cpm, wpm, errors) => {
     const testResultDOM = document.querySelector('.test-result');
-    const accuracy = Math.round((cpm * 100)/(cpm + errors)) || 0;
+    const accuracy = ((cpm * 100)/(cpm + errors)).toFixed(1) || 0;
     let resultIndex;
 
     if (cpm >= 250 && accuracy >= 97) resultIndex = 0;
@@ -34,7 +34,6 @@ const showTestResult = (cpm, wpm, errors) => {
     const {url, heading, description} = resultData[resultIndex];
 
     testResultDOM.innerHTML = `
-    <main>
         <img src="${url}" alt="test-result-image">
         <article>
             <h3>${heading}</h3>
@@ -42,17 +41,9 @@ const showTestResult = (cpm, wpm, errors) => {
             <p>You made <span class="errors-result">${errors} errors</span>.</p>
             <p>Your accuracy is <span class="accuracy-result">${accuracy}%</span>.</p>
             <p>${description}</p>
-        </article>
-    </main>
-    <footer>
-        <button class="btn" id="close-test-result-btn">Close</button>
-    </footer>`;
+        </article>`;
 
-    document.getElementById('close-test-result-btn').addEventListener('click', () => {
-        testResultDOM.parentElement.classList.remove('show');
-    });
-
-    testResultDOM.parentElement.classList.add('show');
+    testResultDOM.parentElement.parentElement.classList.add('show');
 };
 
 export default showTestResult;
