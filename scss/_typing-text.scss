@@ -1,10 +1,18 @@
 .typing-text {
+    max-height: 30rem;
     padding: 0.5rem;
     border: 1px solid $grey;
     border-radius: $radius;
+    overflow-y: auto;
     text-align: justify;
     word-break: break-all;
     font-size: 1.2rem;
+    @include for-size(small) {
+        max-height: 26rem;
+    }
+    @include for-size(extra-small) {
+        max-height: 22rem;
+    }
     span {
         position: relative;
         &.active {
@@ -26,7 +34,7 @@
         &.incorrect {
             outline: 1px solid $white;
             border-radius: $radius;
-            background-color: #ef463a41;
+            background-color: $transp-red;
             color: $red;
         }
     }

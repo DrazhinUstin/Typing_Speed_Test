@@ -1,8 +1,14 @@
 .test-result {
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: auto 1fr;
     grid-gap: 1rem;
     padding: 1rem 1rem 0 1rem;
+    @include for-size(medium) {
+        grid-template-columns: 1fr;
+        img {
+            margin: 0 auto;
+        }
+    }
     img {
         width: 14rem;
     }

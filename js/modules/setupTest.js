@@ -34,6 +34,7 @@ const setupTest = () => {
         focus();
         launchTimer();
         document.addEventListener('keydown', focus);
+        typingTextDOM.addEventListener('click', focus);
         testInput.addEventListener('input', initTyping);
     };
 
@@ -107,6 +108,7 @@ const setupTest = () => {
         clearTimeout(timerID);
         testInput.blur();
         document.removeEventListener('keydown', focus);
+        typingTextDOM.removeEventListener('click', focus);
         testInput.removeEventListener('input', initTyping);
         startTestBtn.textContent = 'restart';
         startTestBtn.parentElement.classList.remove('disabled');

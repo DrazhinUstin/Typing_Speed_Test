@@ -1,10 +1,19 @@
+import * as storage from './modules/storage.js';
 import setupTest from "./modules/setupTest.js";
 
 document.addEventListener('DOMContentLoaded', () => {
+    const select = document.getElementById('test-language');
     const modalWrapper = document.querySelector('.modal-wrapper');
     const closeModalBtn = document.getElementById('close-modal-btn');
     const categoriesWrapper = modalWrapper.querySelector('.categories-wrapper');
     const categoriesDOM = categoriesWrapper.lastElementChild;
+    const settings = storage.getStorageItem('settings');
+    if (settings.language) select.value = settings.language;
+    setupTest();
+
+    select.addEventListener('change', () => {
+        storage.setStorageItem('settings', {language: select.value});
+    });
 
     closeModalBtn.addEventListener('click', () => {
         modalWrapper.classList.remove('show');
@@ -24,8 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
         [...elem.children].forEach(child => totalHeight += child.offsetHeight);
         return totalHeight;
     }
-
-    setupTest();
 });
 
 window.addEventListener('load', () => {

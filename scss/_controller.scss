@@ -1,0 +1,24 @@
+.controller {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 1rem 0;
+    padding: 0.25rem 0;
+    border-radius: $radius;
+    background: linear-gradient($primary-clr 0%, $primary-clr-2 100%);
+    color: $white;
+    @include for-size(medium) {
+        font-size: 0.95rem;
+        overflow-x: auto;
+    }
+    li {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        column-gap: 0.5rem;
+        padding: 0.5rem;
+        border-right: 1px solid $white;
+        text-transform: capitalize;
+        &:last-child {
+            border-right: none;
+        }
+    }
+}

@@ -8,6 +8,8 @@ $black: #1c1c1c;
 $white: #ffffff;
 $grey: #cbcbcb;
 $gold: #fbb910;
+$transp-red: rgba(239, 69, 57, 0.25);
+$max-width: 600px;
 $radius: 0.25rem;
 $radius-2: 0.5rem;
 $space: 0.1rem;
@@ -23,4 +25,20 @@ $ease-trans: all 0.4s ease;
     justify-content: space-between;
     align-items: center;
     column-gap: 1rem;
+}
+
+@mixin for-size($size) {
+    @if ($size == medium) {
+        @media screen and (max-width: 560px) {
+            @content;
+        }
+    } @else if ($size == small) {
+        @media screen and (max-width: 400px) {
+            @content;
+        }
+    } @else if ($size == extra-small) {
+        @media screen and (max-width: 350px) {
+            @content;
+        }
+    }
 }

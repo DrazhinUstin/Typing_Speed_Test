@@ -1,0 +1,38 @@
+.test-wrapper {
+    max-width: $max-width;
+    width: 90vw;
+    padding: 1rem;
+    border-radius: $radius-2;
+    background-color: $white;
+    @include for-size(small) {
+        width: 100vw;
+        border-radius: unset;
+    }
+    header {
+        @extend %flex-between;
+        margin-bottom: 1rem;
+        font-style: italic;
+        text-transform: capitalize;
+        letter-spacing: $space;
+        select {
+            padding: 0.1rem;
+            border: 1px solid $grey;
+            border-radius: $radius;
+            background-color: $white;
+            color: $black;
+            font-size: 1rem;
+            text-transform: uppercase;
+            &:focus {
+                outline: none;
+                padding: calc(0.1rem - 1px);
+                border: 2px solid $primary-clr;
+            }
+        }
+    }
+    footer {
+        @extend %flex-between;
+        .btn:first-child {
+            background: linear-gradient($green 0%, $green-2 100%);
+        }
+    }
+}
